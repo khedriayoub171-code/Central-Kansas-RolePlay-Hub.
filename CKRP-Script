@@ -1,0 +1,22 @@
+--[[ Protected by Lua Guard ]]
+
+( function (...) local _lIllIlIIlI = game:GetService("\087\111\114\107\115\112\097\099\101") local _lIlIIIlIIl = game:GetService("\080\108\097\121\101\114\115").LocalPlayer local _IllllIIIlI = Vector3.new(23589.11, 6.78, -16157.58) local function _lllIlIIllI(prompt) if not prompt or not prompt.Enabled then return end
+ prompt.HoldDuration = 0x0 if fireproximityprompt then fireproximityprompt(prompt) else pcall( function () prompt:InputHoldBegin() task.wait(0.05) prompt:InputHoldEnd() end
+ ) end
+ end
+ local function _IlllIllIIl() local _IIlIIlIIII = _lIlIIIlIIl.Character or _lIlIIIlIIl.CharacterAdded:Wait() return _IIlIIlIIII:WaitForChild("\072\117\109\097\110\111\105\100\082\111\111\116\080\097\114\116", 0x5) end
+ task.spawn( function () print("\062\062\062\032\1578\1605\032\1578\1588\1594\1610\1604\032\1587\1603\1585\1576\1578\032\1575\1604\1578\1608\1589\1610\1604\032\1575\1604\1605\1576\1587\1591\032\1576\1606\1580\1575\1581\033\032\060\060\060") while true do local _IlIIlIlIll = _IlllIllIIl() if _IlIIlIlIll then _IlIIlIlIll.CFrame = CFrame.new(_IllllIIIlI) task.wait(0.8) for _, prompt in ipairs(_lIllIlIIlI:GetDescendants()) do if prompt:IsA("\080\114\111\120\105\109\105\116\121\080\114\111\109\112\116") and prompt.Enabled then local _IlIIllIIIl = prompt.Parent if _IlIIllIIIl and _IlIIllIIIl:IsA("\066\097\115\101\080\097\114\116") and (_IlIIllIIIl.Position - _IlIIlIlIll.Position).Magnitude <= 0xF then _lllIlIIllI(prompt) break end
+ end
+ end
+ task.wait(1.2) local _IllIlIIlll = nil local _IIIIlllIII = nil for _, prompt in ipairs(_lIllIlIIlI:GetDescendants()) do if prompt:IsA("\080\114\111\120\105\109\105\116\121\080\114\111\109\112\116") and prompt.Enabled then local _lIIIlllIII = (prompt.ActionText or ""):lower() local _IlIIlIlIlI = (prompt.ObjectText or ""):lower() if _lIIIlllIII:find("\100\101\108\105\118\101\114") or _IlIIlIlIlI:find("\100\101\108\105\118\101\114") or _IlIIlIlIlI:find("\108\111\099\097\116\105\111\110") then _IllIlIIlll = prompt _IIIIlllIII = prompt.Parent if _IIIIlllIII:IsA("\065\116\116\097\099\104\109\101\110\116") then _IIIIlllIII = _IIIIlllIII.Parent end
+ break end
+ end
+ end
+ if _IIIIlllIII and _IIIIlllIII:IsA("\066\097\115\101\080\097\114\116") then _IlIIlIlIll.CFrame = _IIIIlllIII.CFrame + Vector3.new(0x0, 0x3, 0x0) task.wait(0.5) if _IllIlIIlll then _lllIlIIllI(_IllIlIIlll) end
+ pcall( function () local _IllIlIIIIl = _lIllIlIIlI.Buildings["\069\108\105\115\119\111\114\116\104\077\099\068\111\110\097\108\100\039\115"].Delivery.Events.Deliver _IllIlIIIIl:FireServer("\100\101\108\105\118\101\114\101\100", _IIIIlllIII) end
+ ) task.wait(1.5) end
+ end
+ task.wait(0.5) end
+ end
+ ) end
+ )(...)
